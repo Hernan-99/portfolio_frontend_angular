@@ -35,10 +35,10 @@ const routes: Routes = [
   { path: 'nuevo/curso', component: AddCursosComponent },
   { path: 'editarcur/:id', component: EditCursosDashboardComponent },
 
-  { path: 'nuevaHabilidad', component: AddHbComponent },
+  { path: 'nuevaHabilidadblanda', component: AddHbComponent },
   { path: 'editarhB/:id', component: EditHBDashboardComponent },
 
-  { path: 'nuevaHabilidad', component: AddHdComponent },
+  { path: 'nuevaHabilidaddura', component: AddHdComponent },
   { path: 'editarhD/:id', component: EditHDDashboardComponent },
 
   { path: 'nuevo/proyecto', component: AddProyectoComponent },
