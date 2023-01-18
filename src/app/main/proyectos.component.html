@@ -1,0 +1,28 @@
+<section class="content-proyectos justify-content-around row mb-5">
+  <h3 class="titulo-proyectos">Mis Proyectos</h3>
+
+  <!-- COLUMNA IZQUIERDA -->
+  <article class="col-12 col-lg-9">
+    <div class="row">
+      <div class="col-12 col-lg-6 p-2" *ngFor="let proyecto of proyectos">
+        <div class="card h-100 bg-celeste">
+          <div class="card-body">
+            <h5 class="card-title">{{ proyecto.titulo }}</h5>
+            <p class="card-text">
+              {{ proyecto.descripcion }}
+            </p>
+          </div>
+
+          <div class="card-footer">
+            <a
+              [href]="proyecto.link"
+              target="_blank"
+              class="card-link link link"
+              >Visitar sitio</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

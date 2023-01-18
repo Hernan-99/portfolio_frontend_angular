@@ -1,0 +1,41 @@
+.bg-datosPersonales {
+  background-image: url(../../assets/img/datos.jpg);
+  background-position: center center;
+}
+
+.container {
+  color: #fff;
+  width: 85%;
+  border-radius: 0.25rem;
+  background-color: rgba(178, 53, 206, 0.116);
+  /* background-color: rgba(0, 255, 0, 0.1); */
+}
+input {
+  background-color: transparent;
+}
+input {
+  outline: none;
+  border: 0.12rem solid rgb(178, 53, 206);
+  background-color: transparent;
+  color: #ffff;
+}
+
+input:focus {
+  color: #fff;
+  background-color: rgba(179, 179, 179, 0.164);
+  border-color: 0px 0px 12px -1px rgb(178, 53, 206);
+  outline: 0;
+  box-shadow: 0px 0px 12px -1px rgb(178, 53, 206);
+}
+
+.btn {
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.btn:hover {
+  border: 1px solid rgb(178, 53, 206);
+  color: #fff;
+  background-color: rgb(178, 53, 206);
+  box-shadow: 0px 0px 12px -1px rgb(178, 53, 206);
+}

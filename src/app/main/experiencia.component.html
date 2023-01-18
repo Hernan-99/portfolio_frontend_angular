@@ -1,0 +1,87 @@
+<section class="content-experiencia row">
+  <div class="d-flex justify-content-center mb-5">
+    <h3 class="titulo-experiencia">Experiencia laboral</h3>
+  </div>
+
+  <!-- card -->
+  <article
+    class="col-md-4 col-sm-6 col-12 d-flex justify-content-center mb-5"
+    *ngFor="let experiencia of experiencias"
+  >
+    <!-- app-card-ventas -->
+    <div class="card">
+      <img [src]="experiencia.imgTrabajo" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ experiencia.puesto }}</h5>
+        <div class="desde-hasta d-flex">
+          <p class="desde-hasta-p">Desde:</p>
+          <span class="me-2 ms-2">{{
+            experiencia.fechaFin | date : "MM/yy"
+          }}</span>
+          <p class="desde-hasta-p">Hasta:</p>
+          <span class="me-2 ms-2">{{
+            experiencia.fechaInicio | date : "MM/yy"
+          }}</span>
+        </div>
+        <p class="card-text mb-2">Descripcion del puesto:</p>
+        <div class="descripcion">
+          <p>{{ experiencia.descripcionPuesto }}</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- <article class="col-md-4 col-sm-6 col-12 d-flex justify-content-center mb-5">
+    <div class="card">
+      <img
+        src="../../assets/img/armado-pc.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">Ventas</h5>
+        <div class="desde-hasta d-flex">
+          <p class="desde-hasta-p">Desde:</p>
+          <span class="me-2 ms-2">20/20</span>
+          <p class="desde-hasta-p">Hasta:</p>
+          <span class="me-2 ms-2"> 20/20 </span>
+        </div>
+        <p class="card-text mb-2">Descripcion del puesto:</p>
+        <div class="descripcion">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, a
+            magni. Odit nesciunt, omnis, delectus iste enim voluptas expedita
+            dolore hic ratione quos quo vero a quisquam cupiditate non dicta?
+          </p>
+        </div>
+      </div>
+    </div>
+  </article> -->
+
+  <!-- <article class="col-md-4 col-sm-6 col-12 d-flex justify-content-center mb-5">
+    <div class="card">
+      <img
+        src="../../assets/img/maquetacion-web.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">Ventas</h5>
+        <div class="desde-hasta d-flex">
+          <p class="desde-hasta-p">Desde:</p>
+          <span class="me-2 ms-2">20/20</span>
+          <p class="desde-hasta-p">Hasta:</p>
+          <span class="me-2 ms-2"> 20/20 </span>
+        </div>
+        <p class="card-text mb-2">Descripcion del puesto:</p>
+        <div class="descripcion">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, a
+            magni. Odit nesciunt, omnis, delectus iste enim voluptas expedita
+            dolore hic ratione quos quo vero a quisquam cupiditate non dicta?
+          </p>
+        </div>
+      </div>
+    </div>
+  </article> -->
+</section>

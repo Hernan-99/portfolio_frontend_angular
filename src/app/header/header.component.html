@@ -1,0 +1,55 @@
+<header>
+  <nav class="container-fluid navbar navbar-expand-md navbar-dark pt-0 pb-0">
+    <div class="container-fluid contenido-navbar">
+      <a routerLink="/"
+        ><img class="logo" src="../../../assets/img/logoAP.png" alt="logo"
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
+        <ul class="menu navbar-nav align-items-end">
+          <li class="icon p-md-2 pb-sm-2" *ngIf="isLogged">
+            <a routerLink="/dashboard">
+              <i class="icon ur fas fa-user-edit"></i>
+            </a>
+          </li>
+          <li class="icon p-md-2 pb-sm-2">
+            <a href="https://github.com/Hernan-99" target="_blank"
+              ><i class="fa-brands icon gh fa-square-github"></i
+            ></a>
+          </li>
+          <li class="icon p-md-2 pb-sm-2">
+            <a
+              href="https://www.linkedin.com/in/sanchez-hernan-gabriel/"
+              target="_blank"
+              ><i class="icon fa-brands icon in fa-linkedin"></i
+            ></a>
+          </li>
+          <li class="icon p-md-2 pb-sm-2" *ngIf="!isLogged">
+            <a routerLink="/login">
+              <i class="icon fa-solid ur iconur fa-user-lock"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              *ngIf="isLogged"
+              (click)="onLogOut()"
+              style="cursor: pointer"
+              ><i class="icon ur fas fa-sign-out"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

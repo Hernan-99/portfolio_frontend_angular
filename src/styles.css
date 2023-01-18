@@ -1,0 +1,83 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-angular: #d4173b;
+  --color-bootstrap: #712cf9;
+  --color-css: #264de4;
+  --color-html: #e34c26;
+  --color-js: #f0db4f;
+  --color-principal: #ff4b28;
+  --color-secundario: #00acee;
+}
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #1b1b1b;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/*------------------------------------VALORES EN COMUN REPETIDOS-----------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+.content-aboutMe .acercaDe .contenedorTexto .titulo-about-me,
+.content-experiencia .titulo-experiencia,
+.content-educacion .titulo-educacion,
+.content-educacion-complementaria .titulo-educacion-complementaria,
+.content-hard-soft-skills .titulo-hard-soft,
+.content-proyectos .titulo-proyectos {
+  color: var(--color-principal);
+  text-decoration: underline;
+  text-align: center;
+  font-size: 2.125rem;
+  line-height: 2.125rem;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+/* VALORES EN COMUN REPETIDOS PARA LAS SECCIONES*/
+.content-aboutMe,
+.content-experiencia,
+.educacion,
+.hard-soft-skills,
+.proyectos {
+  margin-bottom: 5rem;
+}
+
+/* VALORES EN COMUN REPETIDOS PARA LAS CARDS*/
+.content-experiencia .card,
+.content-educacion .card,
+.content-educacion-complementaria .card {
+  --bs-card-bg: #00000027;
+  color: #fff;
+  transition: all 300ms;
+  box-shadow: 25px 25px 20px -20px #000000;
+}
+
+.content-educacion .card-colapsable {
+  box-shadow: 12.5px 12.5px 10px -10px #000000;
+}
+
+/* VALORES EN COMUN REPETIDOS PARA LAS CARDS:HOVER*/
+.content-educacion-complementaria .card:hover {
+  border: 1.5px solid #00acee;
+  box-shadow: 0px 0px 12px -1px #00acee;
+  transition: all 300ms;
+  transform: scale(1.03);
+}
+
+/*estilos para las card-experiencia y cad-educacion-formal*/
+.content-experiencia .card,
+.content-educacion .card {
+  width: 20rem;
+}
+
+/* estilos generales para la educacion complementaria */
+.content-educacion-complementaria .card-cursos .descripcion-cursos a {
+  text-decoration: underline;
+}

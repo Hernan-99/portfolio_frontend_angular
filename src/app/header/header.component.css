@@ -1,0 +1,49 @@
+/* color del navbar */
+.contenido-navbar {
+  background-color: #141414;
+  /* 011627 */
+  /* 272838 */
+  /* 1b2a41 */
+}
+.logo {
+  width: 8rem;
+}
+
+/* tamaño iconos */
+.menu .icon {
+  font-size: 1.5rem;
+}
+/* .iconur {
+  font-size: 1.7rem;
+} */
+
+/* color, transicion y hover iconos */
+.ig,
+.gh,
+.in,
+.tw,
+.ur,
+.edit {
+  color: #f3f3f3;
+  transition: all 300ms;
+}
+.ig:hover {
+  color: #d6249f;
+  transition: all 300ms;
+}
+.gh:hover {
+  color: #464444;
+  transition: all 300ms;
+}
+.in:hover {
+  color: #0e76a8;
+  transition: all 300ms;
+}
+.tw:hover {
+  color: #00acee;
+  transition: all 300ms;
+}
+.ur:hover {
+  color: var(--color-secundario);
+  transition: all 300ms;
+}

@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div class="text-center" *ngIf="isLogged; else loggedOut">
+  <h2>Ya has iniciado sesion</h2>
+</div>
+<ng-template #loggedOut>
+  <div class="container d-flex justify-content-center">
+    <div class="card" style="width: 25rem">
+      <div class="card-header">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="iniciar_sesion"
+              data-bs-toggle="tab"
+              data-bs-target="#iniciar-tab-sesion"
+              type="button"
+              role="tab"
+              aria-controls="iniciar-tab-sesion"
+              aria-selected="true"
+              routerLink="/login"
+            >
+              Iniciar sesion
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card-body">
+        <form
+          #f="ngForm"
+          novalidate
+          class="tab-pane fade show active"
+          id="iniciar-tab-sesion"
+          role="tabpanel"
+          aria-labelledby="iniciar_sesion"
+          tabindex="0"
+          (ngSubmit)="onLogin()"
+        >
+          <div class="form-group mb-3">
+            <label for="nombreUsuario">Usuario</label>
+            <input
+              class="form-control"
+              type="text"
+              name="nombreUsuario"
+              id="nombreUsuario"
+              [(ngModel)]="nombreUsuario"
+              required
+            />
+          </div>
+
+          <div class="formgroup mb-3">
+            <label for="contrasenia">Contraseña</label>
+            <input
+              class="form-control"
+              type="password"
+              name="contrasenia"
+              id="contrasenia"
+              [(ngModel)]="contrasenia"
+              required
+            />
+          </div>
+
+          <div class="formgroup mb-3">
+            <button
+              class="btn btn-outline btn-success btn-block"
+              [disabled]="!f.valid"
+            >
+              Iniciar sesion
+            </button>
+          </div>
+        </form>
+
+        <div class="alert alert-danger mt-3" *ngIf="f.submitted && isLoginFail">
+          Error en el login: {{ errMsj }}
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

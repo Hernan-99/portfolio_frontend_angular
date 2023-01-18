@@ -1,0 +1,61 @@
+/* .banner {
+  background-image: url("../../assets/img/hero.png");
+  background-attachment: fixed;
+  background-position: "center center";
+  background-size: "cover";
+  background-repeat: no-repeat;
+  height: 80vh;
+} */
+.banner .contenedorTexto {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+  margin: 11.875rem 0;
+  /* margin: -24.875rem 0;
+   */
+}
+
+.banner .contenedorTexto .texto {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  border-radius: 0.1875rem;
+  padding: 1.25rem 3.75rem;
+}
+
+.banner .contenedorTexto .texto h1,
+.banner .contenedorTexto .texto h2 {
+  color: #fff;
+  font-weight: 300;
+  margin: 0;
+}
+
+.banner .contenedorTexto .texto .Nombre {
+  margin: 0.625rem;
+  font-size: 3.125rem;
+  line-height: 3.125rem;
+}
+
+.banner .contenedorTexto .texto .Profesion {
+  font-size: 1.5625rem;
+  line-height: 3.125rem;
+}
+
+/* ------------------------ */
+/* estilos para el aboutme */
+.contenedorTexto {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1em;
+  line-height: 1.875rem;
+  text-align: center;
+  /* width: 80%; */
+  margin: 2.5rem auto 0 auto;
+}
+
+.contenedorTexto .titulo-about-me {
+  color: var(--color-principal);
+  font-weight: 300;
+  font-size: 2.125rem;
+  text-decoration: underline;
+}

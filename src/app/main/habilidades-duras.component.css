@@ -1,0 +1,74 @@
+/* HARDSKILLS */
+.tec {
+  transform: rotate(0deg);
+  transition: all 300ms;
+  /* color: var(--color-angular); */
+}
+/* .progress-bar { */
+/* background-color: var(--color-angular); */
+/* } */
+
+.angular {
+  color: var(--color-angular);
+}
+/* color de la barra */
+.progress .angular {
+  background-color: var(--color-angular);
+}
+
+.bootstrap {
+  color: var(--color-bootstrap);
+}
+/* color de la barra */
+.progress .bootstrap {
+  background-color: var(--color-bootstrap);
+}
+
+.css {
+  color: var(--color-css);
+}
+/* color de la barra */
+.progress .css {
+  background-color: var(--color-css);
+}
+
+.html {
+  color: var(--color-html);
+}
+/* color de la barra */
+.progress .html {
+  background-color: var(--color-html);
+}
+
+.javascript {
+  color: var(--color-js);
+}
+/* color de la barra */
+.progress .colorBarra {
+  background-color: var(--color-html);
+}
+
+.tec:hover {
+  transform: scale(1.5) rotate(20deg);
+  transition: all 300ms;
+}
+
+.w-95 {
+  width: 95%;
+}
+
+/* color de fondo y sombras */
+.card {
+  background-color: #00000027;
+  box-shadow: 25px 25px 20px -20px #000000;
+  color: #fff;
+}
+
+/* color de la barra de progreso */
+.card-content-skilss .progress {
+  background-color: rgb(230, 230, 230);
+}
+hr {
+  color: #00acee;
+  box-shadow: 0px 0px 15px 5px #00acee;
+}

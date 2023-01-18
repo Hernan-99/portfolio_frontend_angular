@@ -1,0 +1,28 @@
+<section class="content-educacion-complementaria row">
+  <div class="d-flex justify-content-center mb-5">
+    <h3 class="titulo-educacion-complementaria">Cursos</h3>
+  </div>
+
+  <article
+    class="col-md-4 col-sm-6 col-12 d-flex justify-content-center mb-5"
+    *ngFor="let curso of cursos"
+  >
+    <div class="card card-cursos text-bg-dark">
+      <img
+        class="card-img"
+        [src]="curso.imgCurso"
+        style="filter: blur(3px)"
+        alt="imagen ilustrativa de cursos"
+      />
+      <div class="descripcion-cursos card-img-overlay">
+        <h5 class="card-title">{{ curso.nombreCurso }}</h5>
+        <p class="card-text">
+          {{ curso.descripcionCurso }}
+        </p>
+        <a class="nav-link" target="_blank" href="{{ curso.link }}"
+          >Conocer mas</a
+        >
+      </div>
+    </div>
+  </article>
+</section>

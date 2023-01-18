@@ -1,0 +1,861 @@
+<div>
+  <div *ngIf="isLogged; else loggedOut">
+    <h2 class="text-center text-light mb-5">Previsualizacion</h2>
+    <!-- <h2 class="text-center text-light">Bienvenido {{ nombreUsuario }}</h2> -->
+    <main class="container-fluid" *ngIf="persona">
+      <section class="row dashboard">
+        <!-- ASIDE - BARRA DE ADMINISTRACION -->
+        <article class="col-md-3 col-sm-6">
+          <div class="d-flex justify-content-center">
+            <div
+              class="nav flex-column nav-pills me-3"
+              id="v-pills-tab"
+              role="tablist"
+              aria-orientation="vertical"
+            >
+              <!-- BTN-DATOS PERSONALES -->
+              <button
+                class="nav-link active"
+                id="v-pills-datos-personales-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#v-pills-datos-personales"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-datos-personales"
+                aria-selected="true"
+              >
+                Datos Personales
+              </button>
+
+              <!-- BTN-EXPERIENCIA -->
+              <button
+                class="nav-link"
+                id="v-pills-experiencia-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#v-pills-experiencia"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-experiencia"
+                aria-selected="false"
+              >
+                Experiencia
+              </button>
+
+              <!-- BTN-EDUCACION -->
+              <button
+                class="nav-link"
+                id="v-pills-educacion-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#v-pills-educacion"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-educacion"
+                aria-selected="false"
+              >
+                Educacion
+              </button>
+
+              <!-- BTN-CURSOS -->
+              <button
+                class="nav-link"
+                id="v-pills-cursos-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#v-pills-cursos"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-cursos"
+                aria-selected="false"
+              >
+                Cursos
+              </button>
+
+              <!-- BTN-HABILIDADES-BLANDAS -->
+              <button
+                class="nav-link"
+                id="v-pills-hb-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#v-pills-hb"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-hb"
+                aria-selected="false"
+              >
+                Habilidades Blandas
+              </button>
+
+              <!-- BTN-HABILIDADES-DURAS -->
+              <button
+                class="nav-link"
+                id="v-pills-hd-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#v-pills-hd"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-hd"
+                aria-selected="false"
+              >
+                Habilidades Duras
+              </button>
+
+              <!-- BTN-PROYECTOS -->
+              <button
+                class="nav-link"
+                id="v-pills-proyectos-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#v-pills-proyectos"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-proyectos"
+                aria-selected="false"
+              >
+                Proyectos
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- MODIFICACION DE DATOS -->
+        <article class="col-md-9 col-sm-6">
+          <!------------------------>
+          <!-------CONTENEDOR------->
+          <!------------------------>
+          <div class="tab-content" id="v-pills-tabContent">
+            <!---------------------->
+            <!---DATOS PERSONALES--->
+            <!---------------------->
+            <div
+              class="tab-pane fade show active"
+              id="v-pills-datos-personales"
+              role="tabpanel"
+              aria-labelledby="v-pills-datos-personales-tab"
+              tabindex="0"
+            >
+              <h3>Datos personales</h3>
+              <div class="mb-3">
+                <label for="formFileMultiple" class="form-label">
+                  Foto de perfil y banner
+                </label>
+                <div class="contenedorFoto mb-4">
+                  <div
+                    *ngIf="persona"
+                    [ngStyle]="{
+                      'background-image': 'url' + '(' + persona.banner + ')',
+                      'background-attachment': 'fixed',
+                      ' background-position': 'center center',
+                      'background-size': 'cover',
+                      'background-repeat': 'no-repeat',
+                      height: '20vh'
+                    }"
+                  >
+                    <img src="{{ persona.imgPerfil }}" alt="" />
+                  </div>
+                </div>
+                <label for="nombre" class="form-label">Nombre</label>
+                <input
+                  class="form-control mb-2"
+                  type="text"
+                  id="nombre"
+                  [value]="persona.nombre"
+                  disabled
+                />
+                <label for="apellido" class="form-label">Apellido</label>
+                <input
+                  class="form-control mb-2"
+                  type="text"
+                  id="apellido"
+                  [value]="persona.apellido"
+                  disabled
+                />
+                <label for="profesion" class="form-label">Profesion</label>
+                <input
+                  class="form-control mb-2"
+                  type="text"
+                  id="profesion"
+                  [value]="persona.stack"
+                  disabled
+                />
+                <label for="profesion" class="form-label">Descripcion</label>
+                <textarea
+                  class="form-control mb-2"
+                  type="text"
+                  id="profesion"
+                  [value]="persona.descripcion"
+                  disabled
+                >
+                </textarea>
+                <div class="d-flex flex-row w-50">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    routerLink="/editar/{{ persona.id }}"
+                  >
+                    Editar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!------------------------->
+            <!-------EXPERIENCIA------->
+            <!------------------------->
+            <div
+              class="tab-pane fade"
+              id="v-pills-experiencia"
+              role="tabpanel"
+              aria-labelledby="v-pills-experiencia-tab"
+              tabindex="0"
+            >
+              <h3>Experiencia laboral</h3>
+              <div class="mb-3" *ngFor="let exp of experiencias">
+                <!-- CARD -->
+                <div class="content-img mb-4 w-75">
+                  <p class="subtitulo">Imagen ilustrativa</p>
+                  <img
+                    [src]="exp.imgTrabajo"
+                    class="card-img-top"
+                    alt="imagen ilustrativa del empleo"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="formFileMultiple" class="form-label"
+                    >Empleo</label
+                  >
+
+                  <!--======================================================-->
+                  <!-- ====================== PUESTO =======================-->
+                  <!--======================================================-->
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    id="formFileMultiple"
+                    [value]="exp.puesto"
+                    disabled
+                  />
+
+                  <!--======================================================-->
+                  <!-- ==================== DESCRIPCION ====================-->
+                  <!--======================================================-->
+                  <div class="mb-3">
+                    <label for="desc-emp" class="form-label">Descripcion</label>
+                    <textarea
+                      class="form-control mb-2"
+                      type="text"
+                      id="desc-emp"
+                      [value]="exp.descripcionPuesto"
+                      disabled
+                    >
+                    </textarea>
+
+                    <!--======================================================-->
+                    <!-- ====================== TIEMPO =======================-->
+                    <!--======================================================-->
+                    <div class="mb-3">
+                      <div class="d-flex">
+                        <div class="d-flex form-control">
+                          <p class="desde-hasta-p">
+                            Desde:
+                            <span class="me-2 ms-2">{{
+                              exp.fechaFin | date : "MM/yy"
+                            }}</span>
+                          </p>
+                        </div>
+                        <div class="mx-3 form-control">
+                          <p class="desde-hasta-p">
+                            Hasta:<span class="me-2 ms-2">{{
+                              exp.fechaInicio | date : "MM/yy"
+                            }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <!-- ACTUALIDAD -->
+                      <!-- <div>
+                        <label for="empleo-actual" class="form-label"
+                          >Actualidad
+
+                          <input
+                            class="mb-2"
+                            id="empleo-actual"
+                            name="empleo-actual"
+                            type="radio"
+                          />
+                        </label>
+                      </div> -->
+                    </div>
+
+                    <!--======================================================-->
+                    <!-- ============= EDITAR, GUARDAR, CANCELAR =============-->
+                    <!--======================================================-->
+                    <div class="d-flex flex-row w-50">
+                      <button
+                        type="button"
+                        class="btn btn-primary me-5 mb-3"
+                        routerLink="/editarexp/{{ exp.id }}"
+                      >
+                        Editar
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-danger me-5 mb-3"
+                        (click)="deleteExp(exp.id)"
+                      >
+                        Eliminar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <hr />
+              </div>
+
+              <div class="agregar w-100 d-flex justify-content-center">
+                <button
+                  type="button"
+                  class="agregar btn btn-primary"
+                  title="agregar"
+                  routerLink="/nueva/experiencia"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <!----------------------->
+            <!-------EDUCACION------->
+            <!----------------------->
+            <div
+              class="tab-pane fade"
+              id="v-pills-educacion"
+              role="tabpanel"
+              aria-labelledby="v-pills-educacion-tab"
+              tabindex="0"
+            >
+              <!-- cambio de educacion -->
+              <h3>Educacion Formal</h3>
+
+              <div class="mb-3" *ngFor="let edu of educaciones">
+                <!--===========================-->
+                <!--======EDICION IMAGEN ======-->
+                <!--===========================-->
+                <div class="content-img mb-4 w-50">
+                  <p class="subtitulo">Imagen ilustrativa</p>
+                  <img
+                    [src]="edu.imgEdu"
+                    class="card-img-top"
+                    alt="imagen ilustrativa del empleo"
+                  />
+                </div>
+
+                <!--================================-->
+                <!--======EDICION INSTITUCION ======-->
+                <!--================================-->
+                <label for="titulo-sec" class="form-label">Institucion</label>
+                <input
+                  class="form-control mb-2"
+                  type="text"
+                  id="titulo-sec"
+                  [value]="edu.institucion"
+                  disabled
+                />
+                <!--===========================-->
+                <!--======EDICION TITULO ======-->
+                <!--===========================-->
+                <div class="mb-3">
+                  <label for="estudios-sec" class="form-label">Titulo</label>
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    id="estudios-sec"
+                    [value]="edu.titulo"
+                    disabled
+                  />
+                </div>
+
+                <!--===========================-->
+                <!--======EDICION TIEMPO ======-->
+                <!--===========================-->
+                <div class="mb-3">
+                  <div class="d-lg-flex d-sm-block contenedor-fechas">
+                    <label for="estudios-sec-inicio" class="form-label"
+                      >Desde
+                      <input
+                        class="form-control mb-2"
+                        type="date"
+                        id="estudios-sec-inicio"
+                        [value]="edu.fechaInicio"
+                        disabled
+                      />
+                    </label>
+                    <label for="estudios-sec-fin" class="form-label"
+                      >Hasta
+                      <input
+                        class="form-control mb-2"
+                        type="date"
+                        id="estudios-sec-fin"
+                        [value]="edu.fechaFin"
+                        disabled
+                      />
+                    </label>
+                  </div>
+
+                  <!-- EN CURSO -->
+                  <div>
+                    <label for="cursando-secu" class="form-label"
+                      >En curso
+                      <input
+                        class="mb-2"
+                        id="cursando-secu"
+                        name="estudios-formal"
+                        type="radio"
+                      />
+                    </label>
+                  </div>
+
+                  <!-- EGRESADO -->
+                  <div>
+                    <label for="egresado-secu" class="form-label"
+                      >Egresado
+                      <input
+                        class="mb-2"
+                        id="egresado-secu"
+                        name="estudios-formal"
+                        type="radio"
+                      />
+                    </label>
+                  </div>
+
+                  <!-- ABANDONADO -->
+                  <div>
+                    <label for="abandonado-secu" class="form-label"
+                      >Abandonado
+                      <input
+                        class="mb-2"
+                        id="abandonado-secu"
+                        name="estudios-formal"
+                        type="radio"
+                      />
+                    </label>
+                  </div>
+                </div>
+
+                <!--======================================-->
+                <!--======EDITAR, GUARDAR, CANCELAR ======-->
+                <!--======================================-->
+                <div class="d-flex flex-row w-50">
+                  <button
+                    type="button"
+                    class="btn btn-primary me-5 mb-3"
+                    routerLink="/editaredu/{{ edu.id }}"
+                  >
+                    Editar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-danger me-5 mb-3"
+                    (click)="deleteEdu(edu.id)"
+                  >
+                    Eliminar
+                  </button>
+                </div>
+                <hr />
+              </div>
+
+              <div class="agregar w-100 d-flex justify-content-center">
+                <button
+                  type="button"
+                  class="agregar btn btn-primary"
+                  title="agregar"
+                  routerLink="/nueva/educacion"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-------------------->
+            <!-------CURSOS------->
+            <!-------------------->
+            <div
+              class="tab-pane fade"
+              id="v-pills-cursos"
+              role="tabpanel"
+              aria-labelledby="v-pills-cursos-tab"
+              tabindex="0"
+            >
+              <h3>Educacion complementaria</h3>
+              <div class="mb-3" *ngFor="let curso of cursos">
+                <div class="content-img mb-4 w-50">
+                  <p class="subtitulo">Imagen ilustrativa</p>
+                  <img
+                    [src]="curso.imgCurso"
+                    class="card-img-top"
+                    alt="imagen ilustrativa del empleo"
+                  />
+                </div>
+
+                <!-- titulo -->
+                <label for="titulo-curso" class="form-label">Titulo</label>
+                <input
+                  class="form-control mb-2"
+                  type="text"
+                  id="titulo-curso"
+                  [value]="curso.nombreCurso"
+                />
+
+                <!-- descripcion -->
+                <div class="mb-3">
+                  <label for="cursos" class="form-label">Descripcion</label>
+                  <textarea
+                    class="form-control mb-2"
+                    type="text"
+                    id="cursos"
+                    [value]="curso.descripcionCurso"
+                  ></textarea>
+                </div>
+
+                <!-- link -->
+                <div class="mb-3">
+                  <label for="cursos" class="form-label"
+                    >Pagina de la institucion</label
+                  >
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    id="cursos"
+                    [value]="curso.link"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <div class="d-flex flex-row w-50">
+                    <button
+                      type="button"
+                      class="btn btn-primary me-5 mb-3"
+                      routerLink="/editarcur/{{ curso.id }}"
+                    >
+                      Editar
+                    </button>
+                    <button
+                      type="button"
+                      (click)="deleteCurso(curso.id)"
+                      class="btn btn-danger me-5 mb-3"
+                    >
+                      Eliminar
+                    </button>
+                  </div>
+                </div>
+
+                <hr />
+              </div>
+
+              <div class="agregar w-100 d-flex justify-content-center">
+                <button
+                  type="button"
+                  class="agregar btn btn-primary"
+                  title="agregar"
+                  routerLink="/nuevo/curso"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <!--------------------------------->
+            <!-------HABILIDADES BLANDAS------->
+            <!--------------------------------->
+            <div
+              class="tab-pane fade"
+              id="v-pills-hb"
+              role="tabpanel"
+              aria-labelledby="v-pills-hb-tab"
+              tabindex="0"
+            >
+              <h3>Soft Skills</h3>
+              <div class="mb-3" *ngFor="let hB of habilidadesB">
+                <!-- CARD -->
+                <div class="content-img mb-4 w-50">
+                  <p class="subtitulo">Icono de habilidad</p>
+                  <i
+                    class="me-1 tec mb-2 fs-2"
+                    ngClass="{{ hB.iconoHabilidad }}"
+                    [ngStyle]="{ color: hB.colorIcono }"
+                  >
+                  </i>
+
+                  <div class="mb-4">
+                    <p class="subtitulo">Color del icono</p>
+                    <input
+                      class="form-control"
+                      type="text"
+                      [value]="hB.colorIcono"
+                      [ngStyle]="{
+                        backgroundColor: hB.colorIcono
+                      }"
+                      disabled
+                    />
+                  </div>
+
+                  <div class="mb-4">
+                    <p class="subtitulo">Nombre habilidad</p>
+                    <input
+                      class="form-control"
+                      type="text"
+                      [value]="hB.nombreHabilidad"
+                      disabled
+                    />
+                  </div>
+
+                  <div class="mb-4">
+                    <p class="subtitulo">Barra de porcentaje</p>
+
+                    <input
+                      type="number"
+                      min="0"
+                      max="100"
+                      class="form-control range w-75"
+                      id="rango"
+                      [value]="hB.porcentaje"
+                      [ngStyle]="{
+                        width: hB.porcentaje + '%',
+                        backgroundColor: hB.colorBarra
+                      }"
+                      placeholder="Ingrese un numero entre 0 y 100"
+                      disabled
+                    />
+                  </div>
+
+                  <div class="mb-4">
+                    <p class="subtitulo">Color de barra de porcentaje</p>
+                    <input
+                      class="form-control"
+                      type="text"
+                      [value]="hB.colorIcono"
+                      [ngStyle]="{
+                        backgroundColor: hB.colorBarra
+                      }"
+                      disabled
+                    />
+                  </div>
+                  <hr />
+                </div>
+
+                <div class="d-flex flex-row w-50">
+                  <button
+                    type="button"
+                    class="btn btn-primary me-3 mb-3"
+                    routerLink="/editarhB/{{ hB.id }}"
+                  >
+                    Editar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-danger mb-3"
+                    (click)="deleteHB(hB.id)"
+                  >
+                    Eliminar
+                  </button>
+                </div>
+              </div>
+
+              <div class="agregar w-100 d-flex justify-content-center">
+                <button
+                  type="button"
+                  class="agregar btn btn-primary"
+                  routerLink="/nuevaHabilidad"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <!--------------------------------->
+            <!-------HABILIDADES DURAS------->
+            <!--------------------------------->
+            <div
+              class="tab-pane fade"
+              id="v-pills-hd"
+              role="tabpanel"
+              aria-labelledby="v-pills-hd-tab"
+              tabindex="0"
+            >
+              <h3>Hard Skills</h3>
+
+              <div class="mb-3" *ngFor="let hD of habilidadesD">
+                <!-- CARD -->
+                <div class="content-img mb-4 w-50">
+                  <p class="subtitulo">Icono tecnologia</p>
+                  <i
+                    class="me-1 tec mb-2 {{ hD.iconoTecnologia }} fs-2"
+                    [ngStyle]="{ color: hD.colorIcono }"
+                  >
+                  </i>
+
+                  <div class="mb-4">
+                    <p class="subtitulo">Color del icono</p>
+                    <input
+                      class="form-control"
+                      type="text"
+                      [value]="hD.colorIcono"
+                      disabled
+                    />
+                  </div>
+
+                  <div class="mb-4">
+                    <p class="subtitulo">Tecnologia</p>
+                    <input
+                      class="form-control"
+                      type="text"
+                      [value]="hD.nombreTecnologia"
+                      disabled
+                    />
+                  </div>
+
+                  <div class="mb-4">
+                    <p class="subtitulo">Barra de porcentaje</p>
+                    <div class="rango">
+                      <input
+                        type="number"
+                        min="0"
+                        max="100"
+                        class="form-control range w-75"
+                        id="rango"
+                        [value]="hD.porcentaje"
+                        [ngStyle]="{
+                          width: hD.porcentaje + '%',
+                          backgroundColor: hD.colorBarra
+                        }"
+                        placeholder="Ingrese un numero entre 0 y 100"
+                        disabled
+                      />
+                    </div>
+                  </div>
+
+                  <div class="mb-4">
+                    <p class="subtitulo">Color de barra de porcentaje</p>
+                    <input
+                      class="form-control"
+                      type="text"
+                      [value]="hD.colorIcono"
+                      [ngStyle]="{
+                        backgroundColor: hD.colorBarra
+                      }"
+                      disabled
+                    />
+                  </div>
+                </div>
+
+                <div class="d-flex flex-row w-50">
+                  <button
+                    type="button"
+                    class="btn btn-primary me-3 mb-3"
+                    routerLink="/editarhD/{{ hD.id }}"
+                  >
+                    Editar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-danger mb-3"
+                    (click)="deleteHD(hD.id)"
+                  >
+                    Eliminar
+                  </button>
+                </div>
+                <hr />
+              </div>
+
+              <div class="agregar w-100 d-flex justify-content-center">
+                <button
+                  type="button"
+                  class="agregar btn btn-primary"
+                  routerLink="/nuevaHabilidad"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <!--------------------------------->
+            <!-------Proyectos------->
+            <!--------------------------------->
+            <div
+              class="tab-pane fade"
+              id="v-pills-proyectos"
+              role="tabpanel"
+              aria-labelledby="v-pills-proyectos-tab"
+              tabindex="0"
+            >
+              <h3>Proyectos</h3>
+              <div class="mb-3" *ngFor="let proyecto of proyectos">
+                <!-- Titulo proyecto -->
+                <div class="mb-3">
+                  <p class="subtitulo">Titulo del proyecto</p>
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    id="titulo-proyecto"
+                    [value]="proyecto.titulo"
+                    disabled
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <p class="subtitulo">Descripcion del proyecto</p>
+                  <textarea
+                    class="form-control mb-2"
+                    type="text"
+                    rows="10"
+                    cols="20"
+                    id="titulo-proyecto"
+                    [value]="proyecto.descripcion"
+                    disabled
+                  ></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <p class="subtitulo">Link del proyecto</p>
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    id="link-proyecto"
+                    [value]="proyecto.link"
+                    disabled
+                  />
+                </div>
+
+                <div class="d-flex flex-row w-50">
+                  <button
+                    type="button"
+                    class="btn btn-primary me-5 mb-3"
+                    routerLink="/editarpro/{{ proyecto.id }}"
+                  >
+                    Editar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-danger me-5 mb-3"
+                    (click)="deleteProyecto(proyecto.id)"
+                  >
+                    Eliminar
+                  </button>
+                </div>
+                <hr />
+              </div>
+
+              <div class="agregar w-100 d-flex justify-content-center">
+                <button
+                  type="button"
+                  class="agregar btn btn-primary"
+                  routerLink="/nuevo/proyecto"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</div>
+<ng-template #loggedOut>
+  <h1 class="text-center text-light">Debes iniciar sesion</h1>
+</ng-template>

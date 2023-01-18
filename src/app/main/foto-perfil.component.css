@@ -1,0 +1,27 @@
+.contenedorFoto {
+  margin-top: -60px;
+}
+.contenedorFoto img {
+  width: 7.1875rem;
+  vertical-align: top;
+  border-radius: 50%;
+  border: 5px solid rgba(0, 0, 0, 0.671);
+}
+
+/* estilos para el aboutme */
+.contenedorTexto {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1em;
+  line-height: 1.875rem;
+  text-align: center;
+  width: 80%;
+  margin: 2.5rem auto 0 auto;
+}
+
+.contenedorTexto .titulo-about-me {
+  color: var(--color-principal);
+  font-weight: 300;
+  font-size: 2.125rem;
+  text-decoration: underline;
+}

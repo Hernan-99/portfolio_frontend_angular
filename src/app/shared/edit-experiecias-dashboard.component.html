@@ -1,0 +1,92 @@
+<!-- ====================================================== -->
+<app-header></app-header>
+<div class="container" *ngIf="experiencia">
+  <div class="row align-items-strech" *ngIf="isLogged; else loggedOut">
+    <div
+      class="col col-md-5 col-lg-5 col-xl-6 bg-datosPersonales d-none d-lg-block"
+    ></div>
+
+    <div class="col">
+      <h2 class="text-center my-4">Experiencias</h2>
+
+      <form (ngSubmit)="onUpdateExp()" novalidate #f="ngForm">
+        <div class="mb-3 form-group">
+          <label class="text-light" for="puesto">Puesto</label>
+          <input
+            type="text"
+            class="form-control"
+            id="puesto"
+            name="puesto"
+            [(ngModel)]="experiencia.puesto"
+            required
+          />
+        </div>
+
+        <div class="mb-3 form-group">
+          <label class="text-light" for="desc">Descripcion del puesto</label>
+          <input
+            type="text"
+            class="form-control"
+            id="desc"
+            name="desc"
+            [(ngModel)]="experiencia.descripcionPuesto"
+          />
+        </div>
+
+        <div class="mb-3 form-group">
+          <label class="text-light" for="imgExp">Imagen ilustrativa</label>
+          <input
+            type="text"
+            class="form-control"
+            id="imgExp"
+            name="imgExp"
+            [(ngModel)]="experiencia.imgTrabajo"
+            required
+          />
+        </div>
+
+        <div class="mb-3 form-group">
+          <label class="text-light" for="fechaInicio">Fecha de inicio</label>
+          <input
+            type="date"
+            class="form-control"
+            id="fechaInicio"
+            name="fechaInicio"
+            [(ngModel)]="experiencia.fechaFin"
+            required
+          />
+        </div>
+
+        <div class="mb-3 form-group">
+          <label class="text-light" for="fechaFin">Fecha de finalizacion</label>
+          <input
+            type="date"
+            class="form-control"
+            id="fechaFin"
+            name="fechaFin"
+            [(ngModel)]="experiencia.fechaInicio"
+            required
+          />
+        </div>
+
+        <div class="mb-3 form-group">
+          <button
+            class="btn btn-outline-success btn-block"
+            [disabled]="!f.valid"
+          >
+            Actualizar
+          </button>
+          <button
+            class="btn btn-outline-success mx-3 btn-block"
+            routerLink="/dashboard"
+          >
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<ng-template #loggedOut>
+  <h1 class="text-center text-light">Debes iniciar sesion</h1>
+</ng-template>

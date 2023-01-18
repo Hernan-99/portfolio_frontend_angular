@@ -1,0 +1,98 @@
+<!-- ====================================================== -->
+<app-header></app-header>
+<div class="container" *ngIf="isLogged; else loggedOut">
+  <div class="row align-items-strech">
+    <div
+      class="col col-md-5 col-lg-5 col-xl-6 bg-datosPersonales d-none d-lg-block"
+    ></div>
+
+    <div class="col">
+      <h2 class="text-center my-4">Habilidades Blandas</h2>
+
+      <form (ngSubmit)="onCreateHabilidad()" novalidate #f="ngForm">
+        <div class="mb-3 form-group">
+          <label class="text-light" for="nombreH "
+            >Nombre de la habilidad</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="nombreH"
+            name="nombreH"
+            [(ngModel)]="nombreHabilidad"
+            required
+          />
+        </div>
+
+        <div class="mb-3 form-group">
+          <label class="text-light" for="icono ">Icono</label>
+          <input
+            type="text"
+            class="form-control"
+            id="icono"
+            name="icono"
+            [(ngModel)]="iconoHabilidad"
+            required
+          />
+        </div>
+
+        <div class="mb-3 form-group">
+          <label class="text-light" for="color ">Color del icono</label>
+          <input
+            type="text"
+            class="form-control"
+            id="color"
+            name="color"
+            [(ngModel)]="colorIcono"
+          />
+        </div>
+
+        <div class="mb-3 form-group">
+          <label class="text-light" for="porcentaje "
+            >Porcentaje de conocimiento</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="porcentaje"
+            name="porcentaje"
+            [(ngModel)]="porcentaje"
+            required
+          />
+        </div>
+
+        <div class="mb-3 form-group">
+          <label class="text-light" for="porcentajeBarraColor "
+            >Color de la barra de porcentaje</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="porcentajeBarraColor"
+            name="porcentajeBarraColor"
+            [(ngModel)]="colorBarra"
+            required
+          />
+        </div>
+
+        <div class="mb-3 form-group">
+          <button
+            class="btn btn-outline-success btn-block"
+            [disabled]="!f.valid"
+          >
+            Agregar
+          </button>
+          <button
+            class="btn btn-outline-success mx-3 btn-block"
+            routerLink="/dashboard"
+          >
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<ng-template #loggedOut>
+  <h1 class="text-center text-light">Debes iniciar sesion</h1>
+</ng-template>
