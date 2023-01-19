@@ -42,6 +42,8 @@ import { EditHBDashboardComponent } from './shared/edit-hbdashboard.component';
 import { EditHDDashboardComponent } from './shared/edit-hddashboard.component';
 import { EditProyectoDashboardComponent } from './shared/edit-proyecto-dashboard.component';
 import { LoginComponent } from './auth/login.component';
+import { CvComponent } from './main/cv.component';
+import { ErrorComponent } from './shared/error.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +81,8 @@ import { LoginComponent } from './auth/login.component';
     EditHDDashboardComponent,
     EditProyectoDashboardComponent,
     LoginComponent,
+    CvComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

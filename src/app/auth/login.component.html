@@ -1,8 +1,61 @@
 <app-header></app-header>
-<div class="text-center" *ngIf="isLogged; else loggedOut">
-  <h2>Ya has iniciado sesion</h2>
+<div class="content">
+  <div class="text-center" *ngIf="isLogged; else loggedOut">
+    <h2>Ya has iniciado sesion</h2>
+  </div>
+
+  <ng-template #loggedOut>
+    <div class="container">
+      <div class="row w-100 vh-100 align-items-strech">
+        <div
+          class="col col-md-5 col-lg-5 col-xl-6 bg-datosPersonales d-none d-lg-block"
+        ></div>
+
+        <div class="col d-flex flex-column justify-content-center">
+          <h2 class="text-center my-4">Iniciar session</h2>
+
+          <form #f="ngForm" novalidate (ngSubmit)="onLogin()">
+            <div class="form-group mb-3">
+              <label for="nombreUsuario">Usuario</label>
+              <input
+                class="form-control"
+                type="text"
+                name="nombreUsuario"
+                id="nombreUsuario"
+                [(ngModel)]="nombreUsuario"
+                required
+              />
+            </div>
+
+            <div class="formgroup mb-3">
+              <label for="contrasenia">Contraseña</label>
+              <input
+                class="form-control"
+                type="password"
+                name="contrasenia"
+                id="contrasenia"
+                [(ngModel)]="contrasenia"
+                required
+              />
+            </div>
+
+            <div class="formgroup mb-3">
+              <button class="btn" [disabled]="!f.valid">Iniciar sesion</button>
+            </div>
+          </form>
+          <div
+            class="alert alert-danger mt-3"
+            *ngIf="f.submitted && isLoginFail"
+          >
+            Error en el login: {{ errMsj }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
 </div>
-<ng-template #loggedOut>
+
+<!-- <ng-template #loggedOut>
   <div class="container d-flex justify-content-center">
     <div class="card" style="width: 25rem">
       <div class="card-header">
@@ -76,4 +129,4 @@
       </div>
     </div>
   </div>
-</ng-template>
+</ng-template> -->

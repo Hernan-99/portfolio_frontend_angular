@@ -1,5 +1,4 @@
 <app-header></app-header>
-
 <div class="container" *ngIf="habilidadB">
   <div class="row align-items-strech" *ngIf="isLogged; else loggedOut">
     <div
@@ -94,5 +93,5 @@
   </div>
 </div>
 <ng-template #loggedOut>
-  <h1 class="text-center text-light">Debes iniciar sesion</h1>
+  <app-error></app-error>
 </ng-template>

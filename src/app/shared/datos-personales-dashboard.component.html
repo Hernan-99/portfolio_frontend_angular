@@ -44,7 +44,7 @@
         </div>
 
         <div class="mb-3 form-group">
-          <label class="text-light" for="apellido ">Apellido</label>
+          <label class="text-light" for="apellido">Apellido</label>
           <input
             type="text"
             class="form-control"
@@ -56,7 +56,7 @@
         </div>
 
         <div class="mb-3 form-group">
-          <label class="text-light" for="apellido ">Stack</label>
+          <label class="text-light" for="apellido">Stack</label>
           <input
             type="text"
             class="form-control"
@@ -68,7 +68,19 @@
         </div>
 
         <div class="mb-3 form-group">
-          <label class="text-light" for="descripcion ">Descripcion</label>
+          <label class="text-light" for="cv">Curriculum</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cv"
+            name="cv"
+            [(ngModel)]="persona.cv"
+            required
+          />
+        </div>
+
+        <div class="mb-3 form-group">
+          <label class="text-light" for="descripcion">Descripcion</label>
           <textarea
             class="form-control"
             id="descripcion"
@@ -99,5 +111,5 @@
   </div>
 </div>
 <ng-template #loggedOut>
-  <h1 class="text-center text-light">Debes iniciar sesion</h1>
+  <app-error></app-error>
 </ng-template>

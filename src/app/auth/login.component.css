@@ -1,0 +1,49 @@
+.bg-datosPersonales {
+  background-image: url(../../assets/img/login.jpg);
+  background-position: center center;
+  background-size: cover;
+}
+
+.container {
+  color: #fff;
+  width: 85%;
+  border-radius: 0.25rem;
+  background: rgb(22, 55, 68);
+  background: rgb(22, 55, 68);
+  background: linear-gradient(
+    180deg,
+    rgba(22, 55, 68, 1) 50%,
+    rgba(0, 183, 255, 1) 100%
+  );
+}
+
+.form-control {
+  outline: none;
+  border: 0.12rem solid var(--color-secundario);
+  background-color: transparent;
+  color: #ffff;
+}
+.form-control:focus {
+  color: #fff;
+  background-color: rgba(179, 179, 179, 0.164);
+  border-color: var(--color-secundario);
+  outline: 0;
+  box-shadow: 0px 0px 12px -1px var(--color-secundario);
+}
+.btn {
+  color: #fff;
+  border: 1px solid rgb(0, 172, 238);
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: rgb(0, 172, 238);
+  box-shadow: 0px 0px 12px -1px rgb(0, 172, 238);
+}
+
+.content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

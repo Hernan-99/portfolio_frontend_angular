@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+.content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mensaje {
+  color: #eb4963;
+  font-family: "Press Start 2P", cursive;
+}
+.card {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(350deg, #1780a7, #2cc9dc);
+  padding: 0.3rem;
+  border: none;
+}
+.card-body {
+  background: #fff;
+  border-radius: 0.375rem;
+  padding: 1.5rem;
+}
+
+.min-icon {
+  width: 80%;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+}
+.min,
+.max,
+.cerrar {
+  width: 1.55rem;
+  height: 1.55rem;
+  margin-left: 2px;
+  border-radius: 50%;
+}
+
+.cerrar {
+  color: #fff;
+  background: #eb4963;
+}
+.max {
+  color: #fff;
+  background: #fed043;
+}
+
+.min {
+  color: #fff;
+  background: #8fc63f;
+}
+
+h1 {
+  font-family: "Press Start 2P", cursive;
+  color: #eb4963;
+}
+
+.btn {
+  width: 30%;
+  background: rgba(134, 134, 134, 0.5);
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: rgba(134, 134, 134, 0.8);
+}

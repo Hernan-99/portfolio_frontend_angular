@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-end ml-5 mb-5" *ngIf="personaCv">
+  <a
+    rel="noreferrer"
+    target="_blank"
+    class="cv"
+    title="Descargar CV"
+    [href]="personaCv.cv"
+    download="Sanchez_Hernan_CV"
+  >
+    <button
+      [ngClass]="{ ocultar: cvDescarga }"
+      id="curriculum"
+      title="Descargar CV"
+      class="d-flex justify-content-center align-items-center btn-cv"
+    >
+      <i class="fa-solid fa-file"></i>
+    </button>
+  </a>
+</div>
