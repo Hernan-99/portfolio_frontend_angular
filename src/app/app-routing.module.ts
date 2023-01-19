@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { IndexComponent } from './index/index.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FormularioComponent } from './formulario/formulario.component';
 import { DatosPersonalesDashboardComponent } from './shared/datos-personales-dashboard.component';
 import { AddExpComponent } from './shared/add-exp.component';
 import { AddCursosComponent } from './shared/add-cursos.component';
@@ -21,7 +20,6 @@ import { LoginComponent } from './auth/login.component';
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'dashboard', component: DashboardComponent },
-  // { path: 'editar/:id', component: DashboardComponent },
   { path: 'editar/:id', component: DatosPersonalesDashboardComponent },
 
   { path: 'login', component: LoginComponent },
@@ -44,9 +42,7 @@ const routes: Routes = [
   { path: 'nuevo/proyecto', component: AddProyectoComponent },
   { path: 'editarpro/:id', component: EditProyectoDashboardComponent },
 
-  { path: 'form', component: FormularioComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
-  // { path: '', redirectTo: '**', pathMatch: 'full' },
 ];
 
 @NgModule({

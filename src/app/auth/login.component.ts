@@ -4,6 +4,9 @@ import { LoginUsuario } from '../models/login-usuario';
 import { AuthService } from '../services/auth.service';
 import { TokenService } from '../services/token.service';
 
+//validacion de formularios
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,11 +20,30 @@ export class LoginComponent implements OnInit {
   contrasenia: string;
   roles: string[] = [];
   errMsj: string;
+
+  //validacion
+  public formLogin: FormGroup = new FormGroup({});
+  //expresion regular
+  public expReg = /^[a-zA-Z0-9]{5,5}$/;
+
   constructor(
     private tokenService: TokenService,
     private authService: AuthService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {
+    this.validation();
+  }
+
+  validation(): void {
+    this.formLogin = this.formBuilder.group({
+      nombreUsuario: [
+        '',
+        [Validators.required, Validators.pattern(this.expReg)],
+      ],
+      contrasenia: ['', [Validators.required, Validators.minLength(5)]],
+    });
+  }
 
   ngOnInit(): void {
     if (this.tokenService.getToken()) {
@@ -46,8 +68,7 @@ export class LoginComponent implements OnInit {
       error: (err) => {
         this.isLogged = false;
         this.isLoginFail = true;
-        this.errMsj = err.error.message; //mensaje hace referencia al mensaje del back de campos mal puestos
-        // console.log(this.errMsj);
+        this.errMsj = err.error.message; //mensaje hace referencia a la clase mensaje del back
       },
     });
   }

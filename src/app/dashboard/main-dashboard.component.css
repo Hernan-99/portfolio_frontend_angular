@@ -1,8 +1,3 @@
-/* h1 {
-  text-align: center;
-  color: #eee;
-} */
-/* DASHBOARD */
 h3,
 label,
 input {
@@ -13,11 +8,6 @@ input {
   resize: none;
 }
 
-/* .content-btn {
-  background: #000;
-  display: flex;
-  flex-direction: column;
-} */
 /* BOTONES DE GUARDAR  */
 .btn-primary {
   /* border: 0.13rem solid #ff6143; */

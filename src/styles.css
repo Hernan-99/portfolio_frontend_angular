@@ -81,3 +81,8 @@ body {
 .content-educacion-complementaria .card-cursos .descripcion-cursos a {
   text-decoration: underline;
 }
+
+.msjValid {
+  color: #ff5d6d;
+  font-weight: 600;
+}

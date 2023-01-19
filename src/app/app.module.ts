@@ -19,7 +19,6 @@ import { FooterComponent } from './footer/footer.component';
 import { IndexComponent } from './index/index.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainDashboardComponent } from './dashboard/main-dashboard.component';
-import { FormularioComponent } from './formulario/formulario.component';
 
 import { ExperienciaComponent } from './main/experiencia.component';
 import { EducacionComponent } from './main/educacion.component';
@@ -58,7 +57,6 @@ import { ErrorComponent } from './shared/error.component';
     IndexComponent,
     DashboardComponent,
     MainDashboardComponent,
-    FormularioComponent,
 
     ExperienciaComponent,
     EducacionComponent,

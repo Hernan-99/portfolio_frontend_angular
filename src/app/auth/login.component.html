@@ -8,13 +8,19 @@
     <div class="container">
       <div class="row w-100 vh-100 align-items-strech">
         <div
-          class="col col-md-5 col-lg-5 col-xl-6 bg-datosPersonales d-none d-lg-block"
+          class="col col-md-5 col-lg-5 col-xl-6 login d-none d-lg-block"
         ></div>
 
         <div class="col d-flex flex-column justify-content-center">
           <h2 class="text-center my-4">Iniciar session</h2>
 
-          <form #f="ngForm" novalidate (ngSubmit)="onLogin()">
+          <!-- #f="ngForm" -->
+          <form
+            novalidate
+            (ngSubmit)="onLogin()"
+            id="formLogin"
+            [formGroup]="formLogin"
+          >
             <div class="form-group mb-3">
               <label for="nombreUsuario">Usuario</label>
               <input
@@ -23,8 +29,30 @@
                 name="nombreUsuario"
                 id="nombreUsuario"
                 [(ngModel)]="nombreUsuario"
+                formControlName="nombreUsuario"
                 required
               />
+
+              <!--------------------------->
+              <!------MENSAJE DE ERROR----->
+              <!--------------------------->
+              <div
+                *ngIf="
+                  formLogin.controls['nombreUsuario'].invalid &&
+                  formLogin.controls['nombreUsuario'].touched
+                "
+              >
+                <div
+                  *ngIf="formLogin.controls['nombreUsuario'].errors?.['required']"
+                >
+                  <p class="msjValid">Campo obligatorio</p>
+                </div>
+                <div
+                  *ngIf="formLogin.controls['nombreUsuario'].errors?.['pattern']"
+                >
+                  <p class="msjValid">Ingrese un nombre de usuario correcto</p>
+                </div>
+              </div>
             </div>
 
             <div class="formgroup mb-3">
@@ -35,98 +63,46 @@
                 name="contrasenia"
                 id="contrasenia"
                 [(ngModel)]="contrasenia"
+                formControlName="contrasenia"
+                placeholder="*********"
                 required
               />
+
+              <div
+                *ngIf="
+                  formLogin.controls['contrasenia'].invalid &&
+                  formLogin.controls['contrasenia'].touched
+                "
+              >
+                <p
+                  class="msjValid"
+                  *ngIf="formLogin.controls['contrasenia'].errors?.['required']"
+                >
+                  Campo obligatorio
+                </p>
+
+                <p
+                  class="msjValid"
+                  *ngIf="formLogin.controls['contrasenia'].errors?.['minlength']"
+                >
+                  Contraseña incorrecta
+                </p>
+              </div>
             </div>
 
             <div class="formgroup mb-3">
-              <button class="btn" [disabled]="!f.valid">Iniciar sesion</button>
+              <!-- [disabled]="!f.valid" -->
+              <button class="btn">Iniciar sesion</button>
             </div>
           </form>
-          <div
+          <!-- <div
             class="alert alert-danger mt-3"
             *ngIf="f.submitted && isLoginFail"
           >
             Error en el login: {{ errMsj }}
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
   </ng-template>
 </div>
-
-<!-- <ng-template #loggedOut>
-  <div class="container d-flex justify-content-center">
-    <div class="card" style="width: 25rem">
-      <div class="card-header">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link active"
-              id="iniciar_sesion"
-              data-bs-toggle="tab"
-              data-bs-target="#iniciar-tab-sesion"
-              type="button"
-              role="tab"
-              aria-controls="iniciar-tab-sesion"
-              aria-selected="true"
-              routerLink="/login"
-            >
-              Iniciar sesion
-            </button>
-          </li>
-        </ul>
-      </div>
-
-      <div class="card-body">
-        <form
-          #f="ngForm"
-          novalidate
-          class="tab-pane fade show active"
-          id="iniciar-tab-sesion"
-          role="tabpanel"
-          aria-labelledby="iniciar_sesion"
-          tabindex="0"
-          (ngSubmit)="onLogin()"
-        >
-          <div class="form-group mb-3">
-            <label for="nombreUsuario">Usuario</label>
-            <input
-              class="form-control"
-              type="text"
-              name="nombreUsuario"
-              id="nombreUsuario"
-              [(ngModel)]="nombreUsuario"
-              required
-            />
-          </div>
-
-          <div class="formgroup mb-3">
-            <label for="contrasenia">Contraseña</label>
-            <input
-              class="form-control"
-              type="password"
-              name="contrasenia"
-              id="contrasenia"
-              [(ngModel)]="contrasenia"
-              required
-            />
-          </div>
-
-          <div class="formgroup mb-3">
-            <button
-              class="btn btn-outline btn-success btn-block"
-              [disabled]="!f.valid"
-            >
-              Iniciar sesion
-            </button>
-          </div>
-        </form>
-
-        <div class="alert alert-danger mt-3" *ngIf="f.submitted && isLoginFail">
-          Error en el login: {{ errMsj }}
-        </div>
-      </div>
-    </div>
-  </div>
-</ng-template> -->
