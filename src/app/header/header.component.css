@@ -50,3 +50,6 @@
   transition: all 300ms;
 }
 /* ----------------------------------------------- */
+.navbar-toggler-icon {
+  color: #fff;
+}

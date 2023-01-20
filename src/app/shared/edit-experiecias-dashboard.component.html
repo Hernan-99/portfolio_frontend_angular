@@ -24,13 +24,14 @@
 
         <div class="mb-3 form-group">
           <label class="text-light" for="desc">Descripcion del puesto</label>
-          <input
-            type="text"
+          <textarea
             class="form-control"
-            id="desc"
             name="desc"
+            id="desc"
+            cols="30"
+            rows="10"
             [(ngModel)]="experiencia.descripcionPuesto"
-          />
+          ></textarea>
         </div>
 
         <div class="mb-3 form-group">
